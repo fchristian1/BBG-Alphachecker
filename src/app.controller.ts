@@ -9,19 +9,21 @@ export class AppController {
   onlyDel: boolean = false;
   ids: any[] = [];
   count: number = 0;
+  title = 'Alphachecker';
+  version = ' V1.1'
   @Get()
   @Render('index')
   async root() {
     await this.getData();
     this.all = false;
-    return { all: this.all, title: ' Alphachecker', ids: this.ids, count: this.count };
+    return { all: this.all, title: this.title + this.version, ids: this.ids, count: this.count };
   }
   @Get('all')
   @Render('index')
   async rootAll() {
     await this.getData(true);
     this.all = true;
-    return { all: this.all, title: ' Alphachecker', ids: this.ids, count: this.count };
+    return { all: this.all, title: this.title + this.version, ids: this.ids, count: this.count };
   }
 
   @Get('one/:id')
