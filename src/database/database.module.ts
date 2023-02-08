@@ -8,7 +8,7 @@ import { MongoClient, Db } from 'mongodb';
       useFactory: async (): Promise<Db> => {
         try {
           const client = await MongoClient.connect(
-            'mongodb://mongodbuser:mongodbpass@192.168.200.100:27017',
+            'mongodb://mongodb:27017',
           );
           return client.db('mydb');
         } catch (e) {
@@ -19,4 +19,4 @@ import { MongoClient, Db } from 'mongodb';
   ],
   exports: ['DATABASE_CONNECTION'],
 })
-export class DatabaseModule {}
+export class DatabaseModule { }
